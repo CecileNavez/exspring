@@ -2,12 +2,15 @@ package be.abis.exercise.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import be.abis.exercise.model.Course;
 import be.abis.exercise.repository.MemoryCourseRepository;
 
 public class AbisCourseService implements CourseService {
 	
-	MemoryCourseRepository m = new MemoryCourseRepository();
+	@Autowired
+	MemoryCourseRepository m ;
 	
 	@Override
 	public List<Course> findAllCourses() {
