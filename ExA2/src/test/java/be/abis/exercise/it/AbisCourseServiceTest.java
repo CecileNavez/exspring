@@ -1,6 +1,7 @@
 package be.abis.exercise.it;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,11 @@ public class AbisCourseServiceTest {
 	@Test
 	public void theCoursWithId7900isWorkshopSQL() {
 		assertEquals("Workshop SQL", courseService.findCourse(7900).getShortTitle());
+	}
+	
+	@Test
+	public void thePriceOfCourse7900IsHigherThan400() {
+		assertTrue(courseService.findCourse(7900).getPricePerDay() > 400.0);
 	}
 	
 }
