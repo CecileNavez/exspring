@@ -1,5 +1,7 @@
 package be.abis.exercise.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,7 +66,11 @@ public class AppController {
 	
 	@PostMapping("/changepassword")
 	public String submitNewPassword(Model model, Person person) {
-		trainingService.findPerson(loggedPerson.getEmailAddress(), loggedPerson.getPassword()).setPassword(person.getPassword());
+		try {
+			trainingService.changePassword(loggedPerson, person.getPassword());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return "redirect:/passwordmodified";
 	}
 	
