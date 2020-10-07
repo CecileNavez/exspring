@@ -12,13 +12,10 @@
 			    <tr>
 		            <th class="text-left">First Name</th>
 		            <th class="text-left">Last Name</th>
-
 		        </tr>
-		    
- 		
-				<tr>
-		            <td th:text="${firstName}"></td>
-		            <td th:text="${lastName}"></td>
+				<tr th:each="person : ${persons}">
+		            <td th:text="${person.firstName}"></td>
+		            <td th:text="${person.lastName}"></td>
 				</tr>
 			
 	</table>
