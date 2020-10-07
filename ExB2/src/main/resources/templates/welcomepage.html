@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome</title>
+</head>
+<body>
+	<h1>Welcome <span th:text="${person.firstName}"></span></h1>
+	
+	<p>
+	 	<a href="http://localhost/exercise/searchforcourse">search for course</a>
+	 	<br>
+	 	<a href="http://localhost/exercise/personadministration">person administration</a>
+	</p>
+	
+	<form action="#" method="get" th:action="@{/logout}">
+		<span><input type="submit" th:value="Logout"></input></span>
+	</form>
+</body>
+</html>
