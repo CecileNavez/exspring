@@ -4,6 +4,12 @@
 <title>Welcome</title>
 </head>
 <body>
-	<h1>Welcome</h1>
+	<h1>Welcome <span th:text="${person.firstName}"></span></h1>
+	
+	<p>
+	 	<a href="searchforcourse.htm">search for course</a>
+	 	<br>
+	 	<a href="personadministration.htm">person administration</a>
+	</p>
 </body>
 </html>

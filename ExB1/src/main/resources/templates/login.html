@@ -3,16 +3,18 @@
 <head> <title>Login</title></head>
 <body>
 <h1>Login Page</h1>
-<form action="#" method="post" th:action="@{/login}" th:object="${person}">
+<form action="#" method="post" th:action="@{/}" th:object="${person}">
 		
 	<table>
 	<tr> 
 	<td>Email:</td>
-	<td><input type = "text" th:field="*{emailaddress}" class = "form-control" placeholder = "Enter your email address"></td>
+	<td><input type = "text" th:field="*{emailAddress}" class = "form-control" 
+		placeholder = "Enter your email address"></td>
 	</tr>
 	<tr> 
 	<td>Password:</td>
-	<td><input type = "password" th:field="*{password}" class = "form-control" placeholder = "Enter your password"></td>
+	<td><input type = "password" th:field="*{password}" class = "form-control" 
+		placeholder = "Enter your password"></td>
 	</tr>
 	
 	</table>

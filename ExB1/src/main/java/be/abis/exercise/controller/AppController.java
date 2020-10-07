@@ -15,6 +15,7 @@ public class AppController {
 	@Autowired
 	TrainingService trainingService;
 	
+	Person loggedPerson;
 	
 	@GetMapping("/")
 	public String showLogin(Model model) {
@@ -23,11 +24,16 @@ public class AppController {
 		return "login";
 	}
 	
-	/*@PostMapping("/")
+	@PostMapping("/")
 	public String submitLogin(Model model, Person person) {
-		Person loggedPerson = new Person();
 		loggedPerson = trainingService.findPerson(person.getEmailAddress(), person.getPassword());
+		return "redirect:/welcomepage";
+	}
+	
+	@GetMapping("/welcomepage")
+	public String showWelcome(Model model) {
+		model.addAttribute("person", loggedPerson);
 		return "welcomepage";
-	}*/
+	}
 
 }
