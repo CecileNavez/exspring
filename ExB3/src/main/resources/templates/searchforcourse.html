@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Search for course</title>
+</head>
+<body>
+	<h1>Search for course </h1>
+	
+	<p>
+ 	<ul>
+	 	<li>Show all courses</li>
+	 	<li>Find a course by id</li>
+	 	<li>Find a course by short title</li>
+ 	</ul>
+	</p>
+	
+	<form action="#" method="get" th:action="@{/back}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>
+</body>
+</html>
