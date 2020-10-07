@@ -35,5 +35,10 @@ public class AppController {
 		model.addAttribute("person", loggedPerson);
 		return "welcomepage";
 	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "redirect:/";
+	}
 
 }

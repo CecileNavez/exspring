@@ -7,11 +7,13 @@
 	<h1>Welcome <span th:text="${person.firstName}"></span></h1>
 	
 	<p>
-	 	<a href="searchforcourse.htm">search for course</a>
+	 	<a href="http://localhost/exercise/searchforcourse">search for course</a>
 	 	<br>
-	 	<a href="personadministration.htm">person administration</a>
+	 	<a href="http://localhost/exercise/personadministration">person administration</a>
 	</p>
 	
-	<button type="submit">Logout</button>
+	<form action="#" method="get" th:action="@{/logout}">
+		<span><input type="submit" th:value="Logout"></input></span>
+	</form>
 </body>
 </html>
