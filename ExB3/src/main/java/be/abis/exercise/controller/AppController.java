@@ -1,6 +1,7 @@
 package be.abis.exercise.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -105,10 +106,11 @@ public class AppController {
 	}
 	
 	@GetMapping("/allpersons")
-	public String showAllPersons(Model model) {
+	public String showAllPersons(Model model, Person person) {
+		model.addAttribute("person", person);
 		return "allpersons";
 	}
-	
+		
 	@GetMapping("/searchpersonbyid")
 	public String showSearchPersonById(Model model) {
 		return "searchpersonbyid";
