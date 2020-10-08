@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>all persons</title>
+</head>
+<body>
+	<h1>All persons</h1>
+	
+	<form action="#" method="post" th:action="@{/resultpersonbyid}" th:object="${person}">
+		
+	<table>
+			    <tr>
+		            <th class="text-left">First Name</th>
+		            <th class="text-left">Last Name</th>
+		        </tr>
+				<tr>
+		            <td th:text="${person.firstName}"></td>
+		            <td th:text="${person.lastName}"></td>
+				</tr>
+			
+	</table>
+	</form>
+
+	
+	<form action="#" method="get" th:action="@{/backtosearchpersons}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+	
+</body>
+</html>

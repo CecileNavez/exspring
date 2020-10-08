@@ -21,6 +21,7 @@ public class AppController {
 	
 	Person loggedPerson;
 	List<Person> personsFound;
+	Person personFound;
 	List<Course> courseFound;
 	Person removedPerson;
 	Person addedPerson;
@@ -150,7 +151,21 @@ public class AppController {
 		
 	@GetMapping("/searchpersonbyid")
 	public String showSearchPersonById(Model model) {
+		Person person = new Person();
+		model.addAttribute("person", person);
 		return "searchpersonbyid";
+	}
+	
+	@PostMapping("/searchpersonbyid")
+	public String submitSearchPersonById(Model model, Person person) {
+		personFound = trainingService.findPerson(person.getPersonId());
+		return "redirect:/resultpersonbyid";
+	}
+	
+	@GetMapping("/resultpersonbyid")
+	public String showResultPersonById(Model model) {
+		model.addAttribute("person", personFound);
+		return "/resultpersonbyid";
 	}
 	
 }
