@@ -1,7 +1,6 @@
 package be.abis.exercise.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import be.abis.exercise.model.Course;
 import be.abis.exercise.model.Person;
 import be.abis.exercise.service.TrainingService;
 
@@ -21,6 +21,9 @@ public class AppController {
 	
 	Person loggedPerson;
 	List<Person> personsFound;
+	List<Course> courseFound;
+	Person removedPerson;
+	Person addedPerson;
 	
 	@GetMapping("/")
 	public String showLogin(Model model) {
@@ -89,8 +92,26 @@ public class AppController {
 	
 	@GetMapping("/addperson")
 	public String showAddPerson(Model model) {
+		Person person = new Person();
+		model.addAttribute("person", person);
 		return "addperson";
 	}
+	
+	@PostMapping("/addperson")
+	public String submitNewPerson(Model model, Person person) {
+		try {
+			trainingService.addPerson(person);
+			} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/addedperson";
+	}
+	
+	@GetMapping("/addedperson")
+	public String showAddedPerson(Model model) {
+		return "addedperson";
+	}
+	
 	
 	@GetMapping("/removeperson")
 	public String showRemovePerson(Model model) {
