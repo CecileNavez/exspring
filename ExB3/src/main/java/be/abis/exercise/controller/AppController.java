@@ -115,7 +115,20 @@ public class AppController {
 	
 	@GetMapping("/removeperson")
 	public String showRemovePerson(Model model) {
+		Person person = new Person();
+		model.addAttribute("person", person);
 		return "removeperson";
+	}
+	
+	@PostMapping("/removeperson")
+	public String submitRemovePerson(Model model, Person person) {
+		trainingService.deletePerson(person.getPersonId());
+		return "redirect:/removedperson";
+	}
+	
+	@GetMapping("/removedperson")
+	public String showRemovedPerson(Model model) {
+		return "removedperson";
 	}
 	
 	@GetMapping("/backtoadmin")
