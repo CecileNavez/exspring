@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import be.abis.exercise.model.Course;
 import be.abis.exercise.model.Person;
+import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.TrainingService;
 
 @Controller
@@ -18,11 +19,13 @@ public class AppController {
 	
 	@Autowired
 	TrainingService trainingService;
+	@Autowired
+	CourseService courseService;
 	
 	Person loggedPerson;
 	List<Person> personsFound;
 	Person personFound;
-	List<Course> courseFound;
+	List<Course> coursesFound;
 	Person removedPerson;
 	Person addedPerson;
 	
@@ -168,4 +171,15 @@ public class AppController {
 		return "/resultpersonbyid";
 	}
 	
+	@GetMapping("/allcourses")
+	public String showAllCourses(Model model) {
+		coursesFound = courseService.findAllCourses();
+		model.addAttribute("courses",coursesFound);
+		return "/allcourses";
+	}
+	
+	@GetMapping("/backtosearchforcourses")
+	public String backtosearchforcourses() {
+			return "redirect:/searchforcourse";
+		}
 }
