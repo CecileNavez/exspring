@@ -28,6 +28,7 @@ public class AppController {
 	List<Course> coursesFound;
 	Person removedPerson;
 	Person addedPerson;
+	Course courseFound;
 	
 	@GetMapping("/")
 	public String showLogin(Model model) {
@@ -181,5 +182,24 @@ public class AppController {
 	@GetMapping("/backtosearchforcourses")
 	public String backtosearchforcourses() {
 			return "redirect:/searchforcourse";
-		}
+	}
+	
+	@GetMapping("/searchcoursebyid")
+	public String showSearchCourseById(Model model) {
+		Course course = new Course();
+		model.addAttribute("course", course);
+		return "searchcoursebyid";
+	}
+	
+	@PostMapping("/searchcoursebyid")
+	public String submitSearchCourseById(Model model, Course course) {
+		courseFound = courseService.findCourse(course.getCourseId());
+		return "redirect:/resultcoursebyid";
+	}
+	
+	@GetMapping("/resultcoursebyid")
+	public String showResultCourseById(Model model) {
+		model.addAttribute("course", courseFound);
+		return "/resultcoursebyid";
+	}
 }
