@@ -202,4 +202,23 @@ public class AppController {
 		model.addAttribute("course", courseFound);
 		return "/resultcoursebyid";
 	}
+	
+	@GetMapping("/searchcoursebyname")
+	public String showSearchCourseByName(Model model) {
+		Course course = new Course();
+		model.addAttribute("course", course);
+		return "searchcoursebyname";
+	}
+	
+	@PostMapping("/searchcoursebyname")
+	public String submitSearchCourseByName(Model model, Course course) {
+		courseFound = courseService.findCourse(course.getShortTitle());
+		return "redirect:/resultcoursebyname";
+	}
+	
+	@GetMapping("/resultcoursebyname")
+	public String showResultCourseByName(Model model) {
+		model.addAttribute("course", courseFound);
+		return "/resultcoursebyname";
+	}
 }
