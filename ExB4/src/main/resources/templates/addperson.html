@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>add person</title>
+</head>
+<body>
+	<h1>Add a new person</h1>
+	
+	<form action="#" method="post" th:action="@{/addperson}" th:object="${person}">
+		
+	<table>
+	
+		<tr> 
+			<td>ID :</td>
+			<td><input type = "text" th:field="*{personId}" class = "form-control" 
+				placeholder = "Enter First Name"></input></td>
+		</tr>
+		<tr> 
+			<td>First Name:</td>
+			<td><input type = "text" th:field="*{firstName}" class = "form-control" 
+				placeholder = "Enter First Name"></input></td>
+		</tr>
+		<tr> 
+			<td>Last Name:</td>
+			<td><input type = "text" th:field="*{lastName}" class = "form-control" 
+				placeholder = "Enter Last Name"></input></td>
+		</tr>
+		<tr> 
+			<td>Age:</td>
+			<td><input type = "text" th:field="*{age}" class = "form-control" 
+				placeholder = ""></input></td>
+		</tr>
+		<tr> 
+			<td>Email:</td>
+			<td><input type = "text" th:field="*{emailAddress}" class = "form-control" 
+				placeholder = "Enter e-mail"></input></td>
+		</tr>
+		<tr> 
+			<td>Password:</td>
+			<td><input type = "password" th:field="*{password}" class = "form-control" 
+				placeholder = "Enter password"></input></td>
+		</tr>
+		<tr>
+		<td><label for="language">Language:</label></td>
+			<td>
+				<select id="language" name="language" th:field="*{language}">
+					<option value="FR">FR</option>
+					<option value="NL">NL</option>
+					<option value="EN">EN</option>
+				</select>
+			</td>
+		</tr>
+		<tr> 
+			<td>Company Name:</td>
+			<td><input type = "text" th:field="*{company.name}" class = "form-control" 
+				placeholder = "Enter company name"></input></td>
+		</tr>
+		<tr> 
+			<td>Company Phone Number:</td>
+			<td><input type = "text" th:field="*{company.telephoneNumber}" class = "form-control" 
+				placeholder = "Enter phone number"></input></td>
+		</tr>
+		<tr> 
+			<td>Company VAT:</td>
+			<td><input type = "text" th:field="*{company.vatNr}" class = "form-control" 
+				placeholder = "Enter VAT"></input></td>
+		</tr>
+		<tr> 
+			<td>Company street:</td>
+			<td><input type = "text" th:field="*{company.address.street}" class = "form-control" 
+				placeholder = "Enter address"></input></td>
+		</tr>
+				<tr> 
+			<td>Company nr:</td>
+			<td><input type = "text" th:field="*{company.address.nr}" class = "form-control" 
+				placeholder = "Enter address"></input></td>
+		</tr>
+				<tr> 
+			<td>Company zipcode:</td>
+			<td><input type = "text" th:field="*{company.address.zipcode}" class = "form-control" 
+				placeholder = "Enter address"></input></td>
+		</tr>
+		<tr> 
+			<td>Company town:</td>
+			<td><input type = "text" th:field="*{company.address.town}" class = "form-control" 
+				placeholder = "Enter address"></input></td>
+		</tr>
+
+
+		
+		
+		
+		
+	</table>
+	<button type="submit">Submit</button> 
+	</form>
+	
+	<form action="#" method="get" th:action="@{/backtoadmin}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+	
+</body>
+</html>

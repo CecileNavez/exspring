@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>search persons</title>
+</head>
+<body>
+	<h1>Search for persons (all persons or by id)</h1>
+	
+	<ul>
+	 	<li><a href="http://localhost/exercise/allpersons">All persons</a></li>
+	 	<li><a href="http://localhost/exercise/searchpersonbyid">Search for a person by id</a></li>
+	 </ul>
+ 	
+	<form action="#" method="get" th:action="@{/backtoadmin}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+	
+	
+</body>
+</html>
