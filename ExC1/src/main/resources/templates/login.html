@@ -6,18 +6,20 @@
 <form action="#" method="post" th:action="@{/}" th:object="${person}">
 		
 	<table>
-	<tr> 
-	<td>Email:</td>
-	<td><input type = "text" th:field="*{emailAddress}" class = "form-control" 
-		placeholder = "Enter your email address"></input></td>
-	</tr>
-	<tr> 
-	<td>Password:</td>
-	<td><input type = "password" th:field="*{password}" class = "form-control" 
-		placeholder = "Enter your password"></input></td>
-	</tr>
-	
+		<tr> 
+			<td>Email:</td>
+			<td><input type = "text" th:field="*{emailAddress}" class = "form-control" 
+				placeholder = "Enter your email address"></input></td>
+		</tr>
+		<tr> 
+			<td>Password:</td>
+			<td><input type = "password" th:field="*{password}" class = "form-control" 
+				placeholder = "Enter your password"></input></td>
+		</tr>
 	</table>
+	<div>
+		<span style="color:red" th:errors="*{global}"></span>
+	</div>
 	<button type="submit">Login</button> 
 </form>
 </body>

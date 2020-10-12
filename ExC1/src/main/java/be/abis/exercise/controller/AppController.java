@@ -36,6 +36,15 @@ public class AppController {
 	Person addedPerson;
 	Course courseFound;
 	
+	private boolean loginExists(String login) {
+		for(Person person : personsFound) {
+			if(person.getEmailAddress().equals(login)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@GetMapping("/")
 	public String showLogin(Model model) {
 		Person person = new Person();
@@ -44,9 +53,15 @@ public class AppController {
 	}
 	
 	@PostMapping("/")
-	public String submitLogin(Model model, Person person) {
+	public String submitLogin(Model model, @Valid Person person, BindingResult bindingResult) {
 		loggedPerson = trainingService.findPerson(person.getEmailAddress(), person.getPassword());
-		return "redirect:/welcomepage";
+		
+		if(loginExists(loggedPerson.getEmailAddress())) {
+			return "redirect:/welcomepage";
+		} else {
+			bindingResult.rejectValue("login", "", "incorrect login");
+			return "/";
+		}
 	}
 	
 	@GetMapping("/welcomepage")
@@ -232,4 +247,6 @@ public class AppController {
 		model.addAttribute("course", courseFound);
 		return "resultcoursebyname";
 	}
+	
+	
 }
