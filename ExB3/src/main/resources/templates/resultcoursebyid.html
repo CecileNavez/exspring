@@ -6,8 +6,6 @@
 <body>
 	<h1>Result course by ID : </h1>
 	
-	<form action="#" method="post" th:action="@{/resultcoursebyid}" th:object="${course}">
-		
 	<table>
 			    <tr>
 		            <th class="text-left">ID</th>
@@ -17,15 +15,14 @@
 		            <th class="text-left">Price per day</th>
 		        </tr>
 				<tr>
-		            <td th:text="${courseId}"></td>
-		            <td th:text="${shortTitle}"></td>
-		            <td th:text="${longTitle}"></td>
-		            <td th:text="${numberOfDays}"></td>
-		            <td th:text="${pricePerDay}"></td>
+		            <td th:text="${course.courseId}"></td>
+		            <td th:text="${course.shortTitle}"></td>
+		            <td th:text="${course.longTitle}"></td>
+		            <td th:text="${course.numberOfDays}"></td>
+		            <td th:text="${course.pricePerDay}"></td>
 				</tr>
 			
 	</table>
-	</form>
 
 	
 	<form action="#" method="get" th:action="@{/backtosearchforcourses}">

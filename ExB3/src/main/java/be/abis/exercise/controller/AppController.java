@@ -160,10 +160,10 @@ public class AppController {
 		return "searchpersonbyid";
 	}
 	
-	@PostMapping("/searchpersonbyid")
-	public String submitSearchPersonById(Model model, Person person) {
-		personFound = trainingService.findPerson(person.getPersonId());
-		return "redirect:/resultpersonbyid";
+	@PostMapping("/searchcoursebyid")
+	public String submitSearchCourseById(Model model, Course course) {
+		courseFound = courseService.findCourse(Integer.parseInt(course.getCourseId()));
+		return "redirect:/resultcoursebyid";
 	}
 	
 	@GetMapping("/resultpersonbyid")

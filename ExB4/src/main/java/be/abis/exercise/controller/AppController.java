@@ -193,7 +193,7 @@ public class AppController {
 	
 	@PostMapping("/searchcoursebyid")
 	public String submitSearchCourseById(Model model, Course course) {
-		courseFound = courseService.findCourse(course.getCourseId());
+		courseFound = courseService.findCourse(Integer.parseInt(course.getCourseId()));
 		return "redirect:/resultcoursebyid";
 	}
 	
