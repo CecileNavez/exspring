@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>all persons</title>
+</head>
+<body>
+	<h1>All persons</h1>
+	
+	<form action="#" method="post" th:action="@{/allcourses}" th:object="${course}">
+		
+	<table>
+			    <tr>
+		            <th class="text-left">Id</th>
+		            <th class="text-left">Short Title</th>
+		            <th class="text-left">Long Title</th>
+		            <th class="text-left">Number of days</th>
+		            <th class="text-left">Price per day</th>
+		        </tr>
+				<tr th:each="course : ${courses}">
+		            <td th:text="${course.courseId}"></td>
+		            <td th:text="${course.shortTitle}"></td>
+		            <td th:text="${course.longTitle}"></td>
+		            <td th:text="${course.numberOfDays}"></td>
+		            <td th:text="${course.pricePerDay}"></td>
+				</tr>
+			
+	</table>
+	</form>
+
+	
+	<form action="#" method="get" th:action="@{/backtosearchforcourses}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+	
+</body>
+</html>

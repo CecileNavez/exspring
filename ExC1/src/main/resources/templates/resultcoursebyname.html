@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>course by name</title>
+</head>
+<body>
+	<h1>Result Course By Name</h1>
+	
+		
+	<table>
+			    <tr>
+		            <th class="text-left">ID</th>
+		            <th class="text-left">Short Title</th>
+		            <th class="text-left">Long Title</th>
+		            <th class="text-left">Number of days</th>
+		            <th class="text-left">Price per day</th>
+		        </tr>
+				<tr>
+		            <td th:text="${course.courseId}"></td>
+		            <td th:text="${course.shortTitle}"></td>
+		            <td th:text="${course.longTitle}"></td>
+		            <td th:text="${course.numberOfDays}"></td>
+		            <td th:text="${course.pricePerDay}"></td>
+				</tr>
+			
+	</table>
+
+	
+	<form action="#" method="get" th:action="@{/backtosearchforcourses}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+	
+</body>
+</html>

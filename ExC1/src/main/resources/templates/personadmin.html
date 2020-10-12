@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>person admin</title>
+</head>
+<body>
+	<h1>Person Administration </h1>
+	
+	<p>
+	<ul>
+	 	<li><a href="http://localhost/exercise/changepassword">Change your own password</a></li>
+	 	<li><a href="http://localhost/exercise/searchpersons">Search for persons (all persons or by id)</a></li>
+	 	<li><a href="http://localhost/exercise/addperson">Add a new person</a></li>
+	 	<li><a href="http://localhost/exercise/removeperson">Remove a person (by id)</a></li>
+ 	</ul>
+	</p>
+	
+	<form action="#" method="get" th:action="@{/back}">
+		<span><input type="submit" th:value="Back"></input></span>
+	</form>	
+</body>
+</html>

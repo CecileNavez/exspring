@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>error page</title>
+</head>
+<body>
+
+<h1>An error with code <span th:text="${code}"></span> happened !</h1>
+
+
+
+<form action="#" method="get" th:action="@{/logout}">
+		<span><input type="submit" th:value="Logout"></input></span>
+</form>
+</body>
+</html>
